@@ -1,4 +1,4 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'shotgun'
 
 class Birthday < Sinatra::Base
@@ -7,6 +7,11 @@ class Birthday < Sinatra::Base
   end
 
   post '/form-result' do
+    @birthday_day = params[:day]
+    @birthday_month = params[:month]
     erb(:result)
   end
+
+
+run! if app_file == $0
 end
